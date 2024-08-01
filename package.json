@@ -1,0 +1,16 @@
+{
+  "name": "api-santos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "sh src/tests.sh",
+    "start": "node --watch --env-file=.env src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.44.4"
+  }
+}
