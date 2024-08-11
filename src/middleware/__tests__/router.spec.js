@@ -5,14 +5,20 @@ const cases = [
     url: '/saint/1',
     method: 'GET',
     expectStringFormat: '/saint:get',
-    expectWriteResponse: "{\"id\":1}"
+    expectWriteResponse: '{\"id\":1}'
   },
   {
     url: '/saint',
-    method: 'POST',
-    expectStringFormat: '/saint:post',
+    method: 'GET',
+    expectStringFormat: '/saint:get',
+    expectWriteResponse: '{\"error\":\"missing or invalid parameter\"}'
+  },
+  {
+    url: '/',
+    method: 'GET',
+    expectStringFormat: '/:get',
     expectWriteResponse: 'Hello, your connection with the API is working'
-  }
+  },
 ]
 
 const DEFAULT_HEADER = { 'Content-Type': 'application/json' }
