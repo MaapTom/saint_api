@@ -1,9 +1,11 @@
-import { SaintService } from "../services/saintService.js"
-import { SaintRepository } from "../repositories/saintRepository.js"
+const SaintService = require("../services/saintService.js")
+const SaintRepository = require("../repositories/saintRepository.js")
 
-export const generateInstance = () => {
+const generateInstance = () => {
   const saintRepository = new SaintRepository()
   const saintService = new SaintService({ saintRepository })
 
   return saintService
 }
+
+module.exports.generateInstance = generateInstance

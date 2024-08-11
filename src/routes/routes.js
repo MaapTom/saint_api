@@ -1,9 +1,9 @@
-import { generateInstance } from "../factories/saintFactory.js"
+const { generateInstance } = require("../factories/saintFactory.js")
 
 const DEFAULT_HEADER = { 'Content-Type': 'application/json' }
 const saintService = generateInstance()
 
-export const routes = {
+const routes = {
   '/saint:get': async (request, response) => {
     const id = Number(request.queryString.id)
 
@@ -14,7 +14,8 @@ export const routes = {
         response.end()
       )
     
-    const data = await saintService.getSaint()
+    //adicionar tratamento de erro
+    const data = await saintService.getSaint(id)
 
     return (
       response.writeHead(200, DEFAULT_HEADER),
@@ -27,3 +28,5 @@ export const routes = {
     response.end()
   }
 }
+
+module.exports = routes

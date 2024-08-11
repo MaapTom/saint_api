@@ -1,13 +1,13 @@
-import { createClient } from "@supabase/supabase-js"
-
+const { createClient } = require("@supabase/supabase-js")
 const supabaseKey = process.env.SUPABASEKEY
 const supabaseUrl = process.env.SUPABASEURL
 
-export class SaintRepository {
+class SaintRepository {
   constructor() {
     this.supabase = createClient(supabaseUrl, supabaseKey)
   }
-
+  
+  //adicionar tratamento de erro e testes
   async getSaint(saintId) {
     const { data, error } = await this.supabase
       .from('saint')
@@ -25,12 +25,11 @@ export class SaintRepository {
           )
         )
       `)
-      .eq('id', 1)
+      .eq('id', saintId)
 
     return data
   }
 
 }
 
-// const saintRepository = new SaintRepository()
-// const data = await saintRepository.getSaint(1)
+module.exports = SaintRepository

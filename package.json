@@ -2,9 +2,9 @@
   "name": "api-santos",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "test": "sh src/tests.sh",
+    "test": "jest",
     "start": "node --watch --env-file=.env src/index.js"
   },
   "author": "",
@@ -12,5 +12,8 @@
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.44.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
