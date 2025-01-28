@@ -14,8 +14,15 @@ const routes = {
         response.end()
       )
     
-    //adicionar tratamento de erro
-    const data = await saintService.getSaint(id)
+    const data = await saintService.getSaint(id) ?? false;
+    
+    if(!data) {
+      return (
+        response.writeHead(404, DEFAULT_HEADER),
+        response.write(JSON.stringify({ error: 'Saint not found' })),
+        response.end()
+      )
+    };
 
     return (
       response.writeHead(200, DEFAULT_HEADER),

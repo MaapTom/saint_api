@@ -3,10 +3,10 @@ const DEFAULT_HEADER = { 'Content-Type': 'application/json' }
 
 const handleError = response => {
   return error => {
-    console.error(error)
-    response.writeHead(500, DEFAULT_HEADER)
     response.write(JSON.stringify({ error: 'Internal Server Error!' }))
+    response.writeHead(500, DEFAULT_HEADER)
     response.end()
+    console.error(error)
   }
 }
 
