@@ -11,6 +11,15 @@ class SaintService {
 
     return saint[0]
   }
+
+  async listSaintsBy(date, month) {
+    if (!date || !month)
+      throw new Error("Date and month are required");
+
+    const listSaints = await this.saintRepository.listSaintsBy(date, month);
+
+    return listSaints;      
+  }
 }
 
 module.exports = SaintService
